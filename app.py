@@ -2,14 +2,10 @@ import ensemble
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import json
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
-
-f = open('models.json')
-
-Models = json.load(f)
 
 
 class Mental(db.Model):
@@ -32,7 +28,7 @@ def index():
         task_content = request.form['content']
         # modelUsed = request.form['models']
         x = [task_content]
-        y=ensemble.predict(x)
+        y = ensemble.predict(x)
         print(y)
         new_post = Mental(post=task_content, classification=y)
         try:
@@ -62,10 +58,6 @@ def delete(id):
     except Exception:
         return Exception
 
-
-# @app.route('/models/model')
-# def bert():
-#     return render_template("bert.html", desc=Models['bert']['desc'])
 
 if (__name__ == "__main__"):
     app.run(debug=True)
