@@ -1,0 +1,73 @@
+{% extends 'base.html' %}  {% block head %} {% endblock %} {% block body %}
+
+<!-- Form start -->
+<div style="text-align: center" class="container">
+  <form class="form" action="/" method="POST">
+    <div class="row g-3">
+      <div class="col-sm-7">
+        <input type="text" name="content" class="form-control" id="input" placeholder="enter text.." aria-label="text">
+      </div>
+      <div class="col-sm">
+        <div class="input-group mb-3">
+   
+        </div>
+      </div>
+ 
+      <div class="col-12 m-1">
+        <button type="submit" class="btn btn-primary" id="submit-button" value="Classify Post" disabled>Classify
+          Post</button>
+      </div>
+    </div>
+  </form>
+  <!-- Form end -->
+
+  {% if tasks|length < 1 %} <h4 style="text-align: center; margin: 5px;">There are no Posts till now!</h4>
+    {% else %}
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">Post</th>
+          <th scope="col">Time Added</th>
+          <th scope="col">Classification</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      {% for task in tasks %}
+      <tbody>
+        <tr>
+          <td>{{ task.post }}</td>
+          <td>{{ task.date_created.date() }}</td>
+          <td>{{task.classification}}</td>
+          <td>
+            <a class="delete-link" href="/delete/{{task.id}}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+<script>
+
+  const inputField = document.getElementById('input');
+  const submitButton = document.getElementById('submit-button');
+  inputField.addEventListener('input', () => {
+    if (inputField.value.trim() === '') {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
+  });
+
+  selectField.addEventListener('change', () => {
+    if (inputField.value.trim() === '' || selectField.value.trim() === '') {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
+  });
+</script>
+
+
+{% endblock %}

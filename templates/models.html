@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
+
+<div class="container-fluid" style="height: 650px;">
+    <div class="row" style="height: 100%;">
+        <div class="col-12 col-md-2 bg-light" style="border-radius: 10px; border: 2px solid black;">
+            <!-- Sidebar content here -->
+            <ul class="model-list">
+                {% for key, value in Models.items() %}
+                <li class="sidebar-item"><a href="#" data-id="{{value['value']}}">{{value['name']}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-12 col-md-9 content-container">
+            <!-- Main content here -->
+            {% for key, value in Models.items() %}
+            <div id="{{ value['value'] }}" class="content">{{ value['desc'] }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.content:not(:first)').hide();
+
+        // Add click event listener to sidebar items
+        $('.model-list a').click(function (e) {
+            e.preventDefault();
+            // Hide all content divs
+            $('.content').hide();
+            // Get the id of the clicked item
+            var itemId = $(this).data('id');
+            // Show the content div associated with the clicked item
+            $('#' + itemId).show();
+        });
+    });
+</script>
+
+
+{% endblock %}

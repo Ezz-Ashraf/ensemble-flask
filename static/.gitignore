@@ -133,7 +133,7 @@ dmypy.json
 .pyre/
 
 # models
-models
+my_weights
 roberta_korean.pth
 xlnet_korean.pth
-my_weights
+models

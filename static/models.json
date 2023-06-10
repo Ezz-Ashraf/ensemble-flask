@@ -1,0 +1,52 @@
+{
+    "bert": {
+        "name": "BERT",
+        "value": "BERT",
+        "desc": "bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert bert "
+    },
+    "xlnet": {
+        "name": "XLNet",
+        "value": "XLN",
+        "desc": "XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet XLNet "
+    },
+    "roberta": {
+        "name": "RoBERTa",
+        "value": "reoberta",
+        "desc": "mahroooooooooooooooooooooooooooooooos"
+    },
+    "fasttext": {
+        "name": "fastText",
+        "value": "FT",
+        "desc": "mahfooooooooooooooooz"
+    },
+    "lstm": {
+        "name": "LSTM",
+        "value": "LSTM",
+        "desc": "mahzooooooooooooooooooooooooooooooooooz"
+    },
+    "cnn": {
+        "name": "CNN",
+        "value": "CNN",
+        "desc": "kfaaaaaaaaaaaaaaaaaaaaaya kdaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "logistic regression": {
+        "name": "Logistic Regression",
+        "value": "LR"
+    },
+    "naive bayes": {
+        "name": "Naive Bayes",
+        "value": "NB"
+    },
+    "xgboost": {
+        "name": "XGBoost",
+        "value": "XGB"
+    },
+    "random forest": {
+        "name": "Random Forest",
+        "value": "RF"
+    },
+    "cnn&lstm": {
+        "name": "CNN & LSTM",
+        "value": "CL"
+    }
+}
