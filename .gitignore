@@ -137,3 +137,6 @@ models
 roberta_korean.pth
 xlnet_korean.pth
 my_weights
+kaggle_weights
+xlnet_kaggle.pth
+roberta_kaggle.pth

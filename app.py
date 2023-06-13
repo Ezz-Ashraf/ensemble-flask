@@ -1,4 +1,5 @@
-import ensemble 
+import soft_ensemble 
+import hard_ensemble
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -26,9 +27,13 @@ with app.app_context():
 def index():
     if (request.method == 'POST'):
         task_content = request.form['content']
-        # modelUsed = request.form['models']
+        modelUsed = request.form['models']
+        print(modelUsed)
         x = [task_content]
-        y = ensemble.predict(x)
+        if (modelUsed == "Hard"):
+            y = hard_ensemble.predict(x)
+        else:
+            y = soft_ensemble.predict(x)
         print(y)
         new_post = Mental(post=task_content, classification=y)
         try:

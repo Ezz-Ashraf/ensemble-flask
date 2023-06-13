@@ -12,7 +12,14 @@
    
         </div>
       </div>
- 
+      <br>
+           <select class="form-select" name="models"  id="models">
+            <option selected disabled value="Models">Model</option>
+            <option value="Soft">Soft Voting</option>
+            <option value="Hard">Hard Voting</option>
+          </select> 
+          <br>
+          <br>
       <div class="col-12 m-1">
         <button type="submit" class="btn btn-primary" id="submit-button" value="Classify Post" disabled>Classify
           Post</button>
@@ -50,24 +57,28 @@
 
 <script>
 
-  const inputField = document.getElementById('input');
-  const submitButton = document.getElementById('submit-button');
-  inputField.addEventListener('input', () => {
-    if (inputField.value.trim() === '') {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  });
 
-  selectField.addEventListener('change', () => {
-    if (inputField.value.trim() === '' || selectField.value.trim() === '') {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  });
+
+const inputField = document.getElementById('input');
+const selectField = document.getElementById('models');
+const submitButton = document.getElementById('submit-button');
+inputField.addEventListener('input', () => {
+  if (inputField.value.trim() === '' || selectField.value.trim() === '' || selectField.value.trim() === 'Models') {
+    submitButton.disabled = true;
+  } else {
+    submitButton.disabled = false;
+  }
+});
+
+selectField.addEventListener('change', () => {
+  if (inputField.value.trim() === '' || selectField.value.trim() === '' || selectField.value.trim() === 'Models') {
+    submitButton.disabled = true;
+  } else {
+    submitButton.disabled = false;
+  }
+});
 </script>
+
 
 
 {% endblock %}
